@@ -1,0 +1,22 @@
+<div>
+    <p>
+      <label for="{{ item.item_id }}">
+      
+      <table class="table" border="0" width="500" height="500" cellspacing="0">
+          <tr>
+              <th width="300" rowspan="3"> <img src="{{ item.url }}" width="300" /> </th>
+              <th height="75" width="150">{{ item.name }}<br /><hr><br />Category:{{ item.category }}</th>
+      
+          </tr>
+          <tr>
+              <th height="150">{{ item.description }} <br /><br /><br /><br /><br />{{ item.quantity }} {{ item.quantitytype }} </th>
+          </tr>
+          <tr>
+              <th>{{ item.nrofitems }} Items left.<hr>Price {{ item.price }} EUR </th>
+      
+          </tr>
+      </table>
+    </label>
+    </p>
+  </div>
+  

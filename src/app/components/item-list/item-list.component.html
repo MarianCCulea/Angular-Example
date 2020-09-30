@@ -1,0 +1,45 @@
+
+<table class="table">
+  <thead>
+      <tr>
+          <th>
+              Id
+          </th>
+          <th>
+              Name
+          </th>
+          <th>
+              Category
+          </th>
+          <th>
+              Price
+          </th>
+          <th>
+              Items in stock
+          </th>
+          <th>Actions</th>
+      </tr>
+  </thead>
+  <tbody *ngFor="let item of items">
+        <tr>
+            <td>
+              {{item.item_id}}
+            </td>
+            <td>
+              {{item.name}}
+            </td>
+            <td>
+              {{item.category}}
+            </td>
+            <td>
+              {{item.price}} 
+            </td>
+            <td>
+              {{item.nrofitems}} 
+            </td>
+            <td>
+                <a href='' alt="Edit">Edit</a> /
+                <button class="btn-danger">Delete</button>
+            </td>
+        </tr>
+</tbody>
