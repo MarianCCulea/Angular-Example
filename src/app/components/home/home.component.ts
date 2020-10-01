@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+
+import { CartService } from '../../services/cart.service';
 import { Item } from '../../model/Item';
 @Component({
   selector: 'app-home',
@@ -8,10 +10,12 @@ import { Item } from '../../model/Item';
 })
 export class HomeComponent implements OnInit {
   items:Item[];
-  constructor(private apiServ:ApiService) { }
+  constructor(private apiServ:ApiService,private cart:CartService) { }
 
   ngOnInit() {
     this.items=this.apiServ.getItems();
   }
+
+  
 
 }

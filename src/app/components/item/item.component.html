@@ -13,10 +13,14 @@
           </tr>
           <tr>
               <th>{{ item.nrofitems }} Items left.<hr>Price {{ item.price }} EUR </th>
-      
+         
           </tr>
+          
+    <button class="btn-danger" (click)="addProductToCart(item)">Add To Cart</button>
       </table>
+      
     </label>
     </p>
+    
   </div>
   

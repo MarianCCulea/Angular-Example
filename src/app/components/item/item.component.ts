@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
+import { CartService } from '../../services/cart.service';
 import { Item } from '../../model/Item';
 @Component({
   selector: 'app-item',
@@ -12,12 +13,18 @@ export class ItemComponent implements OnInit {
   @Output() deleteTodo: EventEmitter<Item> = new EventEmitter();
 
 
-  constructor() { }
+  constructor(private cart:CartService) { }
 
   ngOnInit(): void {
   }
 
   setClasses() {
+  }
+
+  addProductToCart(item:Item){
+    this.cart.addProductToCart(item);
+    
+    console.log("Added item "+item.name);
   }
   
   onDelete(todo) {

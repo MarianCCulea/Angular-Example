@@ -1,1 +1,47 @@
-<p>cart works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let item of items">
+          <tr>
+              <td>
+                {{item.name}}
+              </td>
+              <td>
+                {{item.category}}
+              </td>
+              <td>
+                {{item.price}} 
+              </td>
+          </tr>
+  </tbody>
+  </table>
+
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <label>
+      Address:
+      <input type="text" formControlName="adress" required>
+    </label>
+  
+    <label>
+      Invoice Address:
+      <input type="text" formControlName="invoiceAdress">
+    </label>
+  
+      <label>
+        Phone:
+        <input type="number" formControlName="phone">
+      </label>
+  
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>

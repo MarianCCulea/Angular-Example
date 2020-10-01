@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 import { Item } from '../model/Item';
+import { Order } from '../model/Order';
+import { url } from 'inspector';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -62,5 +64,11 @@ export class ApiService {
     /*
      return this.http.get<Item[]>(`${this.apiUrl}${this.apiItems}`);
     */
+  }
+  
+
+  sendOrder(order:Order){
+    // this.http.post<Order>(this.apiUrl,order,httpOptions);
+    console.log(order.adress+"---"+order.items.toString);
   }
 }
