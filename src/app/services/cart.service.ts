@@ -18,4 +18,8 @@ export class CartService {
   getItems ():Item[]{
     return this.itemsInCart;
   }
+
+  clear(){
+    this.itemsInCart=[];
+  }
 }
