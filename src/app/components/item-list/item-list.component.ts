@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-
+import { ActivatedRoute,Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Item } from '../../model/Item';
 
 @Component({
@@ -11,10 +13,21 @@ import { Item } from '../../model/Item';
 export class ItemListComponent implements OnInit {
 
   items:Item[];
-  constructor(private apiServ:ApiService) { }
+
+  item$: Observable<Item>;
+  selectedId: number;
+
+  constructor(private apiServ:ApiService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
+
     this.items=this.apiServ.getItems();
+
+  }
+
+  onEdit(){
+
+
   }
 
 

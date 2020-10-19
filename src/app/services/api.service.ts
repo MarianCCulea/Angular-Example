@@ -59,6 +59,11 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
+  getItem(id:number):Item{
+    return this.items.find(element => element.item_id=id);
+  }
+
+
   getItems():Item[]{
     return this.items;
     /*

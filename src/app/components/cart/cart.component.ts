@@ -32,8 +32,6 @@ export class CartComponent implements OnInit {
     this.apiServ.sendOrder(this.order);
     console.log("Order ===" + JSON.stringify(this.order));
     this.clearComponent();
-
-   
   }
 
   createOrder() {
