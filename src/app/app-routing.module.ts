@@ -9,8 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'itemlist', component: ItemListComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'edititem', component: EditItemComponent }
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

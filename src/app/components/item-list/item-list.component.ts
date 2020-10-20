@@ -25,12 +25,4 @@ export class ItemListComponent implements OnInit {
 
   }
 
-  onEdit(){
-
-
-  }
-
-
-
-
 }

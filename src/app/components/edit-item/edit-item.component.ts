@@ -3,6 +3,7 @@ import { Item } from '../../model/Item';
 import { FormGroup } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -13,7 +14,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class EditItemComponent implements OnInit {
 
-  item: Item;
+  item$:Observable<Item>;
   itemForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     category: new FormControl(''),
@@ -30,19 +31,10 @@ export class EditItemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let id=history.state.data;
-    this.item = this.apiServ.getItem(id);
-    console.log("asdas aaaaaaa"+id);
-this.itemForm.reset({
-  name: this.item.name,
-  category: this.item.category,
-  price: this.item.price,
-  description: this.item.description,
-  url: this.item.url,
-  quantity: this.item.quantity,
-  quantitytype: this.item.quantitytype,
-  nrofitems: this.item.nrofitems,
-});
+    this.item$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.apiServ.getItem(params.get('item_id')))
+    );
   }
 
   onSubmit() {}

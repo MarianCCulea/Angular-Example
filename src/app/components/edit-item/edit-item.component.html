@@ -1,39 +1,8 @@
-<form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-    <label>
-      Name:
-      <input type="text" formControlName="name" required>
-    </label>
-  
-    <label>
-      Category:
-      <input type="text" formControlName="category">
-    </label>
-  
-    <label>
-        Price:
-        <input type="text" formControlName="price">
-      </label>
-      <label>
-        Description:
-        <input type="text" formControlName="description">
-      </label>
-
-      <label>
-        Url:
-        <input type="text" formControlName="url">
-      </label>
-      <label>
-        Quantity:
-        <input type="number" formControlName="quantity">
-      </label>
-      <label>
-        QuantityType:
-        <input type="text" formControlName="quantitytype">
-      </label>
-      <label>
-        Number Of Items:
-        <input type="number" formControlName="nrofitems">
-      </label>
-  
-    <button type="submit" [disabled]="!itemForm.valid">Save</button>
-  </form>
+<div *ngIf="item$ | async as item">
+    
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="item.name" placeholder="name"/>
+  </div>
+    
+    </div>

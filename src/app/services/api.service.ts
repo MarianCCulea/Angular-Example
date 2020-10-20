@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { map } from 'rxjs/operators';
 
 import { Item } from '../model/Item';
 import { Order } from '../model/Order';
@@ -59,18 +59,28 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
-  getItem(id:number):Item{
-    return this.items.find(element => element.item_id=id);
+  getItem(id:number | string){
+    return this.getItemsObservable().pipe(
+      // (+) before `id` turns the string into a number
+      map((items: Item[]) => this.items.find(item => item.item_id === +id))
+    );
+
   }
 
 
+  getItemsObservable():Observable<Item[]>{
+    return of(this.items);
+    /*
+     return this.http.get<Item[]>(`${this.apiUrl}${this.apiItems}`);
+    */
+  }
+  
   getItems():Item[]{
     return this.items;
     /*
      return this.http.get<Item[]>(`${this.apiUrl}${this.apiItems}`);
     */
   }
-  
 
   sendOrder(order:Order){
     // this.http.post<Order>(this.apiUrl,order,httpOptions);
